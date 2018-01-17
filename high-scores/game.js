@@ -1,5 +1,17 @@
 // game game game code
 
+var container = document.getElementById('game_container');
+
+container.innerHTML = '<h1>High Score List Demo</h1><div class="button-wrapper"><button id="win">Win Game</button> <button id="lose">Lose Game</button></div><div id="high-score-list" class="ms-hidden"></div>';
+
+var currScore;
+
+// win button: generates random integer 1-100
+
+// lose button: simply calls for score display
+
+
+
 // I didn't use any jQuery in this game so the ajax is more complicated, but not bad.
 // displayScores is called by whatever function(s) handle the end of the game
 
@@ -21,19 +33,19 @@ function displayScores(isWin) {
             if (xhr.status === 200) {
                 scores = JSON.parse(xhr.responseText);
                 highScoreList = '<form method="post" id="scoreForm"><table><tr><th colspan="2">High Scores</th></tr>';
-                // display the scores, with an entry field if current score is high enough (in this case, time is low enough; reverse inequality for a true high score list)
+                // display the scores, with an entry field if current score is good enough (in this case, low; reverse inequality for a true high score list)
                 // include a button that makes an AJAX request with set_score = true, plus inits and score
-                var timerFlag = 0;
-                for (i = 0; i < 10 - timerFlag; i++) {
+                var newScoreFlag = 0;
+                for (i = 0; i < 10 - newScoreFlag; i++) {
                     if (!scores[i]) {
-                        if (timerFlag === 0 && isWin) {
-                            highScoreList += '<tr><td><input type="text" id="initials" name="initials" placeholder="ABC" /></td><td>' + timerValue.toString() + '</td></tr>';
+                        if (newScoreFlag === 0 && isWin) {
+                            highScoreList += '<tr><td><input type="text" id="initials" name="initials" placeholder="ABC" /></td><td>' + currScore.toString() + '</td></tr>';
                         }
                         break;
                     }
-                    if (timerValue < scores[i][1] && timerFlag === 0 && isWin) {
-                        highScoreList += '<tr><td><input type="text" id="initials" name="initials" placeholder="ABC" /></td><td>' + timerValue.toString() + '</td></tr>';
-                        timerFlag = 1;
+                    if (currScore < scores[i][1] && newScoreFlag === 0 && isWin) {
+                        highScoreList += '<tr><td><input type="text" id="initials" name="initials" placeholder="ABC" /></td><td>' + currScore.toString() + '</td></tr>';
+                        newScoreFlag = 1;
                     }
                     highScoreList += '<tr><td>' + scores[i][0] + '</td><td>' + scores[i][1] + '</td></tr>';
                 }
@@ -53,7 +65,7 @@ function submitScore() {
         var xhr = new XMLHttpRequest();
         xhr.open('POST', encodeURI('includes/ajax.php'));
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhr.send('initials=' + document.getElementById('initials').value.toString() + '&score=' + timerValue.toString());
+        xhr.send('initials=' + document.getElementById('initials').value.toString() + '&score=' + currScore.toString());
         xhr.onload = function () {
             if (xhr.readyState === 4) {
                 if (xhr.status === 200) {

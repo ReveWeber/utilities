@@ -1,5 +1,5 @@
 <?php
-$database = 'your_db_table_name';
+$table = 'your_db_table_name';
 
 try { 
     require_once( 'db.php'); 

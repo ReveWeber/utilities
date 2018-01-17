@@ -1,0 +1,36 @@
+
+.game {
+    position: relative;
+    display: inline-block;
+    width: 850px;
+    text-align: center;
+}
+
+.ms-hidden {
+    display: none;
+}
+
+.show-scores {
+    display: block;
+    position: absolute;
+    background: rgba(255,255,255,0.75);
+    border: 1px solid rgba(255,165,0,0.4);
+    color: black;
+    padding: 10px 20px;
+    top: 30%;
+    left: 41%;
+}
+
+.show-scores td {
+    padding: 4px;
+}
+
+.show-scores td:first-child {
+    box-sizing: border-box;
+    width: 75px;
+}
+
+.show-scores input {
+    box-sizing: border-box;
+    width: 100%;
+}
