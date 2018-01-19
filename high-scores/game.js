@@ -6,12 +6,6 @@ container.innerHTML = '<h1>High Score List Demo</h1><div class="button-wrapper">
 
 var currScore;
 
-// win button: generates random integer 1-100
-
-// lose button: simply calls for score display
-
-
-
 // I didn't use any jQuery in this game so the ajax is more complicated, but not bad.
 // displayScores is called by whatever function(s) handle the end of the game
 
@@ -62,10 +56,12 @@ function displayScores(isWin) {
 function submitScore() {
     if (document.getElementById('initials')) {
         // submit the score
+        var currInitials = document.getElementById('initials').value.toString();
+        if (currInitials.length === 0) { currInitials = "XXX"; }
         var xhr = new XMLHttpRequest();
         xhr.open('POST', encodeURI('includes/ajax.php'));
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhr.send('initials=' + document.getElementById('initials').value.toString() + '&score=' + currScore.toString());
+        xhr.send('initials=' + currInitials + '&score=' + currScore.toString());
         xhr.onload = function () {
             if (xhr.readyState === 4) {
                 if (xhr.status === 200) {
@@ -81,9 +77,20 @@ function submitScore() {
     }
 }
 
+// win button: generates random integer 1-100
+// lose button: simply calls for score display
+// score submit button: initiates ajax call if applicable; closes high score panel regardless
+
 document.addEventListener('click', function (e) {
     e.preventDefault();
-    if (e.target.getAttribute('id') == 'initials-submit') {
+    if (e.target.getAttribute('id') === 'win') {
+        currScore = Math.floor(100 * Math.random() + 1);
+        displayScores(true);
+    }
+    if (e.target.getAttribute('id') === 'lose') {
+        displayScores(false);
+    }
+    if (e.target.getAttribute('id') === 'initials-submit') {
         submitScore();
     }
 }, false);

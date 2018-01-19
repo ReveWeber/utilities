@@ -8,15 +8,15 @@ try {
 }
 require_once( 'functions.php' );
 
-if ($_POST['get_scores']) {
-    get_scores($db);
-    clean_db($db);
+if (isset($_POST['get_scores'])) {
+    get_scores($db, $table);
+    clean_db($db, $table);
 }
 
-if ($_POST['initials']) {
-    set_score($_POST['initials'], $_POST['score'], $db);
+if (isset($_POST['initials'])) {
+    set_score($_POST['initials'], $_POST['score'], $db, $table);
 }
 
-if ($_POST['install']) {
-    set_up_database($db);
+if (isset($_GET['install'])) {
+    set_up_database($db, $table);
 }

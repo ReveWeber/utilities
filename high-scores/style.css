@@ -13,12 +13,18 @@
 .show-scores {
     display: block;
     position: absolute;
-    background: rgba(255,255,255,0.75);
+    background: rgba(255,255,255,0.9);
     border: 1px solid rgba(255,165,0,0.4);
     color: black;
     padding: 10px 20px;
-    top: 30%;
-    left: 41%;
+    box-sizing: border-box;
+    top: 55%;
+    left: 40%;
+    width: 20%;
+}
+
+.show-scores table {
+    margin: 0 auto;
 }
 
 .show-scores td {
