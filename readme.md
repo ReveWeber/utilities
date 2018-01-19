@@ -12,3 +12,5 @@ Each has its own readme.
 
 * fix-special-characters.js and special-character-cleaning.png <br />
 "Flatten" certain non-ASCII characters to their ASCII equivalent and strip the rest.
+* liquid-yaml-cheatsheet.md <br />
+Syntax and examples for the parts of Liquid and YAML I've found most useful in building Jekyll layouts.
