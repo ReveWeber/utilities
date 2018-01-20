@@ -74,13 +74,13 @@ function get_scores(&$db, $table) {
             $scores[] = [$inits, $score];
         }
     }
-    echo json_encode($scores);
+    echo htmlspecialchars(json_encode($scores));
 }
 
 // adds a score to the database
 function set_score($initials, $score, &$db, $table) {
     $score = intval($score);
-    $initials = substr($initials, 0, 3);
+    $initials = substr(filter_var($initials, FILTER_SANITIZE_URL), 0, 3);
     try {
         $sql = "INSERT INTO ".$table."
                 (inits, score)

@@ -57,6 +57,10 @@ function submitScore() {
     if (document.getElementById('initials')) {
         // submit the score
         var currInitials = document.getElementById('initials').value.toString();
+        // trim initials input into 1-3 ascii characters
+        currInitials = currInitials.replace(/[^\u0000-\u007f]/g, '');
+        if (currInitials.length > 3) { currInitials = currInitials.substr(0,3); }
+        // default value
         if (currInitials.length === 0) { currInitials = "XXX"; }
         var xhr = new XMLHttpRequest();
         xhr.open('POST', encodeURI('includes/ajax.php'));
@@ -71,7 +75,7 @@ function submitScore() {
             }
         };
     } else {
-        // just change the class
+        // no new score; just change the class
         document.getElementById('high-score-list').innerHTML = "";
         document.getElementById('high-score-list').className = 'ms-hidden';
     }
