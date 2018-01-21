@@ -6,6 +6,13 @@ container.innerHTML = '<h1>High Score List Demo</h1><div class="button-wrapper">
 
 var currScore;
 
+// helper function for display in case we took an ampersand or accidental angle bracket
+// from https://stackoverflow.com/a/4835406
+function escapeHtml(text) {
+    var map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', };
+    return text.replace(/[&<>]/g, function(m) { return map[m]; });
+}
+
 // I didn't use any jQuery in this game so the ajax is more complicated, but not bad.
 // displayScores is called by whatever function(s) handle the end of the game
 
@@ -41,7 +48,7 @@ function displayScores(isWin) {
                         highScoreList += '<tr><td><input type="text" id="initials" name="initials" placeholder="ABC" /></td><td>' + currScore.toString() + '</td></tr>';
                         newScoreFlag = 1;
                     }
-                    highScoreList += '<tr><td>' + scores[i][0] + '</td><td>' + scores[i][1] + '</td></tr>';
+                    highScoreList += '<tr><td>' + escapeHtml(scores[i][0]) + '</td><td>' + escapeHtml(scores[i][1]) + '</td></tr>';
                 }
                 highScoreList += '</table><button id="initials-submit" type="submit">OK</button></form>';
                 document.getElementById('high-score-list').innerHTML = highScoreList;
@@ -54,18 +61,18 @@ function displayScores(isWin) {
 }
 
 function submitScore() {
-    if (document.getElementById('initials')) {
-        // submit the score
-        var currInitials = document.getElementById('initials').value.toString();
-        // trim initials input into 1-3 ascii characters
-        currInitials = currInitials.replace(/[^\u0000-\u007f]/g, '');
+    if (document.getElementById('initials') && document.getElementById('initials').value.length) {
+        // submit the score - provided the person entered *something*
+        var currInitials = document.getElementById('initials').value;
+        // trim initials input into 1-3 non-angle-bracket ascii characters
+        currInitials = currInitials.replace(/(<|>|[^\u0020-\u007f])/g, '');
         if (currInitials.length > 3) { currInitials = currInitials.substr(0,3); }
-        // default value
+        // default value if that killed the whole entry
         if (currInitials.length === 0) { currInitials = "XXX"; }
         var xhr = new XMLHttpRequest();
         xhr.open('POST', encodeURI('includes/ajax.php'));
         xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhr.send('initials=' + currInitials + '&score=' + currScore.toString());
+        xhr.send('initials=' + encodeURIComponent(currInitials) + '&score=' + currScore.toString());
         xhr.onload = function () {
             if (xhr.readyState === 4) {
                 if (xhr.status === 200) {
