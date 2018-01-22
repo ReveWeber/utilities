@@ -1,6 +1,6 @@
 # High Score List
 
-Stored in a MySQL database and accessed via JavaScript ajax calls to PHP files.
+Stored in a MySQL database and accessed via JavaScript ajax calls to PHP files. For more details see [the associated blog post](http://www.rweber.net/php-and-mysql/dipping-into-a-database/).
 
 * index.php: where the game happens; calls style.css and game.js
 * game.js: the JS that makes the ajax calls and puts the output into the page appropriately (also runs the game when there is an actual game)
