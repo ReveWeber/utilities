@@ -1,15 +1,23 @@
 /*
     special character flattening and removal, ending with an all-ascii string
     many other options here: https://stackoverflow.com/questions/286921/efficiently-replace-all-accented-characters-in-a-string
+
+    For small amounts of text this is quite fast but you can remove any 
+    conversions that aren't relevant to your circumstances.
 */
 
 function fixSpecialCharacters(text) {
+    // if you want this, it must be first
+    text = text.replace(/&/g, '&amp;');
+
     // in the ascii range but nope
-    text = text.replace(/</g, '[');
-    text = text.replace(/>/g, ']');
+    text = text.replace(/</g, '&lt;');
+    text = text.replace(/>/g, '&gt;');
 
     // punctuation and symbols
-    text = text.replace(/\u00B4/g, '\'');
+    text = text.replace(/[\u00B4\u0022\u2018\u2019]/g, '\'');
+    text = text.replace(/[\u201c\u201d]/g, '"');
+    text = text.replace(/\u00B0/g, '&deg;');
     text = text.replace(/\u00BC/g, '1/4');
     text = text.replace(/\u00BD/g, '1/2');
     text = text.replace(/\u00BE/g, '3/4');
