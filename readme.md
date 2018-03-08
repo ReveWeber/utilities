@@ -5,7 +5,7 @@ This repo is for boilerplate code and helper functions that aren't big enough to
 ### Subfolders
 
 Each has its own readme.
-* ga-boilerplate: Google Analytics tracking
+* ga-boilerplate: Google Analytics tracking for internal promotions and product lists
 * high-scores: ajax-accessed database-stored high score list
 
 ### Top-Level Files

@@ -33,6 +33,7 @@ function pushPromotionClick(promoObj) {
 // event handler attachers for nonstandard promotion markup.
 // promo objects in promoArray sent need to include themselves as a jQuery object, property "webElt"
 // plus the properties GA will look for: id, name, creative, position
+// (for promos position is a description, not necessarily a number)
 // promoViewport, optional, is also a jQuery object, containing the element controlling horizontal visibility
 // eg the wrapper on a carousel
 

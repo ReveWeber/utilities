@@ -61,6 +61,7 @@ function pushProductAdd(productObj) {
 // product objects in productArray sent need to include themselves as a jQuery object, property "webElt"
 // plus the properties GA will look for: name, id, position, list name, price, brand, category, variant
 // one of those first two is required, the next 2 are required, the rest are optional.
+// (for products position is a number starting from 1)
 // productViewport, optional, is also a jQuery object, containing the element controlling horizontal visibility
 // eg the wrapper on a carousel
 
