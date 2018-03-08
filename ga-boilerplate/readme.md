@@ -2,7 +2,7 @@
 
 Generic code for Enhanced Ecommerce purposes.
 
-* generic-promo-tracking-code.js <br />
+* generic-product-list-tracking-code.js <br />
 Code for tracking impressions, clicks, and adds to cart of products in product lists where not all products are visible onscreen at page load (hence impressions not sent as payload on the pageview). Assumes Google Tag Manager and jQuery and has versions to track "standardized" product lists (via data-attributes) and "ad hoc" product lists (via passed-in objects).
 
 * generic-promo-tracking-code.js <br />

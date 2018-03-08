@@ -81,8 +81,10 @@ function setAdHocProductHandlers(productArray, productViewport) {
         var toSplice = [];
         jQuery.each(productArray, function(i, val) {
             var curpro = val.webElt;
-            if (window.scrollY > curpro.offset().top + (curpro.height() / 2) - window.innerHeight && window.scrollY < curpro.offset().top + (curpro.height() / 2)) {
-                if (!productViewport || (curpro.offset().left + (curpro.width() / 2) > productViewport.offset().left && curpro.offset().left + (curpro.width() / 2) < productViewport.offset().left + productViewport.width() )) {
+            if (window.scrollY > curpro.offset().top + (curpro.height() / 2) - window.innerHeight 
+                && window.scrollY < curpro.offset().top + (curpro.height() / 2)) {
+                if (!productViewport || (curpro.offset().left + (curpro.width() / 2) > productViewport.offset().left 
+                    && curpro.offset().left + (curpro.width() / 2) < productViewport.offset().left + productViewport.width() )) {
                     visible.push(val);
                     toSplice.push(i);
                 }
@@ -109,12 +111,15 @@ function setAdHocProductHandlers(productArray, productViewport) {
 // markup assumption: each product has a wrapper and those wrappers are inside a container without other contents
 // wrapper contains one or more links to the product detail page and (possibly) a button that adds to cart
 // container needs attribute data-product-list="product list name"
-// wrapper needs remaining information: data-id="product-id" data-name="Product Name" likewise price, brand, category, variant
+// wrapper needs remaining information: data-id="product-id" data-name="Product Name"
+// likewise price, brand, category, variant
 // and an identifying attribute: data-product="listed-product"
 
 // if you allow more than one of something to be added to the cart from the list you'll have to add that code.
 
-// if your product display markup is nicely standardized you can pull the properties from it rather than duplicating them with data-attributes, but that would require too many assumptions for this code.
+// if your product display markup is nicely standardized you can pull the properties from it
+// rather than duplicating them with data-attributes
+// but that would require too many assumptions for this code.
 
 $.fn.standardProductObj = function () {
     var productObj = {};
@@ -163,7 +168,8 @@ $('document').ready(function () {
             var visible = $();
             var toSplice = [];
             $.each(productArray, function(i, val) {
-                if (window.scrollY > val.offset().top + (val.height() / 2) - window.innerHeight && window.scrollY < val.offset().top + (val.height() / 2)) {
+                if (window.scrollY > val.offset().top + (val.height() / 2) - window.innerHeight 
+                    && window.scrollY < val.offset().top + (val.height() / 2)) {
                     visible = visible.add(val);
                     toSplice.push(i);
                 }
