@@ -18,7 +18,7 @@ For more: [Jekyll documentation](https://jekyllrb.com/docs/frontmatter/), [Liqui
 layout: layout-name
 ```
 
-There is no Liquid for this; Jekyll will look for layout-name.html within the _layouts folder and build the page based on that. This is the only require YAML value for a Jekyll template, and one of only a few that are predefined - in this file, layout, page, and content are reserved names, and all others are freely self-chosen.
+There is no Liquid for this; Jekyll will look for layout-name.html within the `_layouts` folder and build the page based on that. This is the only required YAML value for a Jekyll template, and one of only a few that are predefined - in this file, `layout`, `page`, and `content` are reserved names, and all others are freely self-chosen.
 
 ---
 
@@ -52,7 +52,7 @@ Not really YAML, but the same file; whatever HTML or Markdown you'd like, below 
 ```
 
 **Result**<br>
-Insertion of your HTML verbatim into the specified location.
+Insertion of your HTML verbatim or compiled Markdown into the specified location.
 
 ---
 
@@ -165,7 +165,7 @@ item-list:
 <p id="item-2">eraser for erasing</p>
 ```
 
-Note: This does indeed start at 1; forloop.index0 will give you the 0-based index.
+Note: This does indeed start at 1; `forloop.index0` will give you the 0-based index.
 
 
 ## Limiting Loop Iterations
@@ -197,7 +197,7 @@ In its most basic form, you put
 ```
 {% include fragment.html %}
 ```
-in your page and Jekyll will look for a file named fragment.html within the _includes folder.
+in your page and Jekyll will look for a file named fragment.html within the `_includes` folder.
 
 You can also use page-specific values in the include statement and in the included fragment:
 
