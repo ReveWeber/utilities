@@ -1,0 +1,65 @@
+"editor.tokenColorCustomizations": {
+    "textMateRules": [
+        {
+            "scope": "rainbow1",
+            "settings": {
+               "foreground": "#d4d4d4"
+            }
+        },
+        {
+            "scope": "keyword.rainbow2",
+            "settings": {
+               "foreground": "#6796e6"
+            }
+        },
+        {
+            "scope": "entity.name.function.rainbow3",
+            "settings": {
+               "foreground": "#ce9178"
+            }
+        },
+        {
+            "scope": "comment.rainbow4",
+            "settings": {
+               "foreground": "#98C379"
+            }
+        },
+        {
+            "scope": "string.rainbow5",
+            "settings": {
+               "foreground": "#C678DD"
+            }
+        },
+        {
+            "scope": "variable.parameter.rainbow6",
+            "settings": {
+               "foreground": "#9cdcfe"
+            }
+        },
+        {
+            "scope": "constant.numeric.rainbow7",
+            "settings": {
+               "foreground": "#E5C07B"
+            }
+        },
+        {
+            "scope": "entity.name.type.rainbow8",
+            "settings": {
+               "foreground": "#B997CF"
+            }
+        },
+        {
+            "scope": "markup.bold.rainbow9",
+            "settings": {
+               "foreground": "#b5cea8",
+               "fontStyle": ""
+            }
+        },
+        {
+            "scope": "invalid.rainbow10",
+            "settings": {
+               "foreground": "#d16969"
+            }
+        }
+    ]}
+}

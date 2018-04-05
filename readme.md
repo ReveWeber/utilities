@@ -14,3 +14,5 @@ Each has its own readme.
 "Flatten" certain non-ASCII characters to their ASCII equivalent and strip the rest.
 * liquid-yaml-cheatsheet.md <br />
 Syntax and examples for the parts of Liquid and YAML I've found most useful in building Jekyll layouts.
+* vscode-rainbow-csv-atomic-dark.json <br />
+Settings JSON to have the Visual Studio Code extension Rainbow CSV use colors from the Atomic Dark editor theme.
