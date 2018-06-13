@@ -7,6 +7,7 @@ This repo is for boilerplate code and helper functions that aren't big enough to
 Each has its own readme.
 * ga-boilerplate: Google Analytics tracking for internal promotions and product lists
 * high-scores: ajax-accessed database-stored high score list
+* settings: Terminal and Visual Studio Code settings-type files
 
 ### Top-Level Files
 
@@ -14,5 +15,3 @@ Each has its own readme.
 "Flatten" certain non-ASCII characters to their ASCII equivalent and strip the rest.
 * liquid-yaml-cheatsheet.md <br />
 Syntax and examples for the parts of Liquid and YAML I've found most useful in building Jekyll layouts.
-* vscode-rainbow-csv-atomic-dark.json <br />
-Settings JSON to have the Visual Studio Code extension Rainbow CSV use colors from the Atomic Dark editor theme.
