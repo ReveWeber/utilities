@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Query String Manipulation Test/Example Page</title>
+    <script src="query-string-manipulation.js"> </script>
+  </head>
+  <body>
+    <h1>Query String Manipulation</h1>
+
+    <p id="paramValues"><b>param1 values since last page load:</b></p>
+  
+    <p>Click the options below and watch the query string change.</p>
+
+    <ul>
+        <li><button onclick="parseQuery();recordParam();">Run parseQuery</button></li>
+        <li><button onclick="updateQuery();recordParam();">Run updateQuery</button></li>
+        <li><button onclick="param1='purple';updateQuery();recordParam();">Change param1 to "purple" and update</button></li>
+        <li><button onclick="param1='default1';updateQuery();recordParam();">Change param1 to "default1" and update</button></li>
+        <li><a href="/utilities/query-string-tester.html?param2=blue">Load page with param2 set</a></li>
+        <li><a href="/utilities/query-string-tester.html?param1">Load page with empty param1</a></li>
+        <li><a href="/utilities/query-string-tester.html?param1=green&param2=blue">Load page with param1 and param2 set</a></li>
+        <li><a href="/utilities/query-string-tester.html?param2=blue&param1&param3=red">Load page with empty param1 sandwiched between two other parameters</a></li>
+    </ul>
+
+    <script>
+        var recordParam = function() {
+            var currHtml = document.getElementById('paramValues').innerHTML;
+            document.getElementById('paramValues').innerHTML = currHtml + "<br>" + param1;
+        }
+        parseQuery();
+        recordParam();
+    </script>
+    
+  </body>
+</html>
