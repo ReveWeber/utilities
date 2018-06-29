@@ -17,7 +17,7 @@ function parseQuery() {
     if (queryString.length > 0) {
         // if there's a query string, check for each param within it
         var val1 = queryString.match(/.*param1=([^&]+).*/i);
-        if (val1 && val1.length > 1) {
+        if (val1) {
             param1 = val1[1];
         }
     }
