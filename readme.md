@@ -16,4 +16,4 @@ Each has its own readme.
 * **liquid-yaml-cheatsheet.md** <br />
 Syntax and examples for the parts of Liquid and YAML I've found most useful in building Jekyll layouts.
 * **query-string-manipulation.js** and **query-string-tester.html** <br />
-Read parameters out of the query string and update the browser URL when parameters change, keeping default values out of the query string and coexisting peacefully with additional parameters. To use the test page you'll have to edit the page path appropriately.
+Read parameters out of the query string and update the browser URL when parameters change, keeping default values out of the query string and coexisting peacefully with additional parameters. To use the test page you'll have to edit the page path appropriately. I go through this in my [Bookmarkable Ajax-Driven Pages blog post](https://www.rweber.net/javascript/bookmarkable-ajax-driven-pages/).

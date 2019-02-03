@@ -1,6 +1,6 @@
 # Settings
 
-Terminal and Visual Studio Code settings-type files.
+Terminal and Visual Studio Code settings-type files. I have a [blog post covering the Terminal customizations](https://www.rweber.net/developer-toolbox/smartening-up-the-terminal/).
 
 * command-prompt.sh <br />
 Code to make your bash command prompt into `current-folder/ (current git branch) [current time]$` 
